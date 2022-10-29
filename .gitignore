@@ -1,0 +1,9 @@
+.idea/*
+node_modules/
+_site
+.sass-cache
+.DS_STORE
+.DS_Store
+dist/
+
+.jekyll-cache

@@ -1,0 +1,38 @@
+<div class="user-details">
+  <h1> Background </h1>
+  <p> {{site.user_description}} </p>
+</div>
+
+<div class="user">
+  {% for skill in site.skills %}
+
+  <div class="tech">
+
+    <div class="tech-title">
+      <h2> {{ skill.title }} </h2>
+    </div>
+
+    <div class="tech-icons">
+      {% for icon-class in skill.icons %}
+        <i class="{{ icon-class }}"></i>
+      {% endfor %}
+    </div>
+
+    <div class="tech-tags">
+
+       {% for tag in skill.tags %}
+        <div class="tech-tag">
+          <b>{{ tag }}</b>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="tech-description">
+      <p>
+        {{ skill.description }}
+      </p>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
