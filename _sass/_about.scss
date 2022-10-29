@@ -1,0 +1,91 @@
+#about {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 960px;
+  @media only screen and (min-width: $cut) {
+    width: 80%;
+  }
+}
+
+.user-details {
+  text-align: center;
+  margin: 5px auto;
+
+  p {
+    text-align: justify;
+  }
+}
+
+.user {
+  text-align: center;
+  font-size: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  p {
+    font-size: 16px;
+  }
+  @media only screen and (min-width: $cut) {
+    flex-wrap: nowrap;
+    font-size: 75px;
+  }
+}
+
+.tech {
+  margin: 10px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .tech-title {
+    display: block;
+    h2 {
+      height: 50px;
+      margin: 0.05em 0;
+    }
+  }
+
+  .tech-icons {;
+    min-height: 110px;
+    display: block;
+    i {
+      margin: 5px;
+    }
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 30px;
+
+    .tech-tag {
+      min-width: 20px;
+      height: 15px;
+      margin: 3px 1px;
+      padding: 5px 10px;
+      font-size: 12px;
+      border: 2px solid #F49943;
+      border-radius: 3em;
+
+      &:hover {
+        background: #F49943;
+        border: 2px solid #333;
+        color: white;
+      }
+    }
+  }
+
+  .tech-description {
+    display: block;
+    min-height: 100px;
+
+    p {
+      text-align: justify;
+    }
+
+  }
+}

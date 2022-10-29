@@ -1,0 +1,25 @@
+.footer {
+  background: $main;
+  padding: 5px 0;
+  margin-top: 50px;
+  text-align: center;
+  color: #BBBBBB;
+  font-family: Hack, monospace;
+  max-height: 40px;
+
+  .love {
+    color: red;
+  }
+
+  a {
+    text-decoration: none;
+    margin: 0;
+    color: #FFF;
+    &:hover{
+      color: $sec;
+    }
+    &:active {
+      color: $sec;
+    }
+  }
+}

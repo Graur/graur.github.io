@@ -1,0 +1,55 @@
+# Site settings
+title: Andrew Graur | Developer
+description: A blog about Andrew Graur
+# baseurl: "/particle" # the subpath of your site, e.g. /blog
+# url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+
+# User settings
+username: Andrew Graur
+user_description: I'm a Software Engineer, graduated from the Ural State Technical University in 2011 and now study in Moscow Institute of Physics and Technology (State University) - MIPT. I've always had a passion for computers and problem solving. Since, I began my journey into the world of computer science, I've worked with numerous professional teams, working on code that has included frontend, backend, and internal tools to name a few. It was an interesting challenge for me that helped get a strong, deep background in software and IT. I'm hoping in the future I will be able to improve my skills, accept bigger responsibilities and apply my new knowledge to create better programs.
+user_title: RnD Software Engineer (back-end oriented)
+
+skills:
+  - langs:
+    title: Languagues
+    icons:
+      - devicon-python-plain-wordmark
+      - devicon-javascript-plain colored
+      - devicon-java-plain-wordmark colored
+    tags:
+      - Python
+      - JavaScript
+      - Java
+      - Bash
+    description: I have 4 years of programming experience. In that time, I've used a range of languages including Java, Python and JavaScript.
+
+  - web:
+    title: Web
+    icons:
+      - devicon-vuejs-plain-wordmark colored
+      - devicon-bootstrap-plain-wordmark colored
+      - devicon-jquery-plain-wordmark colored
+    tags:
+      - VueJS
+      - Bootstrap
+      - jQuery
+      - backbone
+    description: I've had the opportunity to explore numerous tools in which to create web applications and different SPAs.
+
+  - other:
+    title: Tools
+    icons:
+      - devicon-confluence-plain-wordmark colored
+      - devicon-git-plain
+      - devicon-docker-plain-wordmark colored
+    tags:
+      - Confluence
+      - Git
+      - Docker
+    description: In my work I had to use many different tools for configure web servers and used practices of CI/CD.
+
+# Google-analytics
+google-analytics:
+  id: "G-BYRTDDM7TN"
+
+exclude: ['package.json', 'src' , 'node_modules']

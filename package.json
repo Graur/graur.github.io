@@ -1,0 +1,14 @@
+{
+  "name": "personal-blog",
+  "version": "1.0.0",
+  "description": "Personal blog...",
+  "main": "index.js",
+  "scripts": {
+    "develop": "bundle exec jekyll clean && npm run -p develop:jekyll",
+    "develop:jekyll": "sleep 5 && bundle exec jekyll serve --watch --livereload",
+    "build": "build:jekyll",
+    "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build"
+  },
+  "author": "Andrew Graur",
+  "license": "MIT"
+}
