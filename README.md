@@ -1,4 +1,4 @@
-# GitHub Pages
+# Based on GitHub Pages
 
 ---
 
@@ -7,13 +7,13 @@
 
 ```
 gem install jekyll bundler
-jekyll new <project-name>
+jekyll new personal-blog
 bundle exec jekyll serve --watch
 
 ```
 ---
 
-### Deploy
+### Deployment
 
 ```
 npm run develop
