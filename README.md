@@ -1,5 +1,12 @@
-# Based on GitHub Pages
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/graur.github.io/blob/master/LICENSE.txt)
+[![Hits-of-Code](https://hitsofcode.com/github/graur/eo-hamcrest)](https://hitsofcode.com/github/graur/graur.github.io/view)
+![Code-Size](https://img.shields.io/github/languages/code-size/Graur/graur.github.io
+)
+![Lines of code](https://img.shields.io/tokei/lines/github/Graur/graur.github.io
+)
 
+# Personal web page based on GitHub Pages
+https://graur.github.io/
 ---
 
 
