@@ -9,23 +9,27 @@
 https://graur.github.io/
 ---
 
+### Run
+
+```bash
+$ bundle update
+$ bundle exec jekyll serve
+```
 
 ### Installation
 
-```
-gem install jekyll bundler
-jekyll new personal-blog
-bundle exec jekyll serve --watch
-
+```bash
+$ gem install jekyll bundler
+$ jekyll new personal-blog
+$ bundle exec jekyll serve --watch
 ```
 ---
 
 ### Deployment
 
-```
-npm run develop
-npm run build
-
+```bash
+$ npm run develop
+$ npm run build
 ```
 ---
 
