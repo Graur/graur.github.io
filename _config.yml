@@ -7,7 +7,7 @@ description: A blog about Andrew Graur
 # User settings
 username: Andrew Graur
 user_description: I'm a Software Engineer, graduated from the Ural State Technical University in 2011 and now study in Moscow Institute of Physics and Technology (State University) - MIPT. I've always had a passion for computers and problem solving. Since, I began my journey into the world of computer science, I've worked with numerous professional teams, working on code that has included frontend, backend, and internal tools to name a few. It was an interesting challenge for me that helped get a strong, deep background in software and IT. I'm hoping in the future I will be able to improve my skills, accept bigger responsibilities and apply my new knowledge to create better programs.
-user_title: RnD Software Engineer (back-end oriented)
+user_title: RnD Software Engineer
 
 skills:
   - langs:
