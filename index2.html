@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <title>Telegram Mini App Data</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        function setThemeClass() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        }
+
+        Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+        setThemeClass();
+    </script>
+    <style>
+        .data-table {
+            width: 100%;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .data-table thead th {
+            font-weight: bold;
+            text-align: left;
+            border: none;
+            padding: 10px 15px;
+            background: #d8d8d8;
+            font-size: 14px;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+
+        .data-table tbody td {
+            text-align: left;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 10px 15px;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .data-table tbody td input {
+            width: 60px;
+        }
+
+        .data-table thead tr th:first-child, .table tbody tr td:first-child {
+            border-left: none;
+        }
+
+        .data-table thead tr th:last-child, .table tbody tr td:last-child {
+            border-right: none;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: #f3f3f3;
+        }
+
+        .add-button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .send-button {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h3>Заполните таблицу</h3>
+<table border="1" id="data-table" class="data-table">
+    <thead>
+    <tr>
+        <th>Объект</th>
+        <th>Точность</th>
+        <th>Ширина, мм</th>
+        <th>Высота, мм</th>
+        <th>Вес, г</th>
+    </tr>
+    </thead>
+    <tbody id="table-body">
+    <!-- Строки будут создаваться динамически здесь -->
+    </tbody>
+</table>
+
+<div>
+    <button class="add-button" onclick="addRow()">+</button>
+</div>
+<div>
+    <button class="send-button" onclick="sendData()">Отправить данные</button>
+</div>
+
+<script>
+    const columns = ['name', 'confidence', 'width', 'height', 'weight'];
+
+    function addRow() {
+        const tableBody = document.getElementById('table-body');
+        const newRow = document.createElement('tr');
+
+        columns.forEach(column => {
+            const cell = document.createElement('td');
+            if (column === 'name' || column === 'confidence') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                cell.appendChild(input);
+            } else {
+                const input = document.createElement('input');
+                input.type = 'number';
+                cell.appendChild(input);
+            }
+            newRow.appendChild(cell);
+        });
+
+        tableBody.appendChild(newRow);
+    }
+
+    function sendData() {
+        const data = [];
+        const tableRows = document.querySelectorAll('#table-body tr');
+        tableRows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            const rowData = {};
+            cells.forEach((cell, index) => {
+                if (index < 2) {
+                    rowData[columns[index]] = ((cell.querySelector('input') || {}).value || 0.0);
+                } else {
+                    rowData[columns[index]] = cell.textContent;
+                }
+            });
+            data.push(rowData);
+        });
+
+        const tg = window.Telegram.WebApp;
+        tg.sendData(JSON.stringify(data));
+        tg.close()
+    }
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const dataString = urlParams.get('data');
+
+    const dataArray = dataString.split(',');
+
+    const data = [];
+    for (let i = 0; i < dataArray.length; i += 2) {
+        const name = dataArray[i];
+        const confidence = dataArray[i + 1] || '0.9';
+        data.push({name, confidence});
+    }
+
+    // Обновляем таблицу на основе данных
+    const tableBody = document.getElementById('table-body');
+    data.forEach(item => {
+        const newRow = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        const confidenceCell = document.createElement('td');
+        const widthCell = document.createElement('td');
+        const heightCell = document.createElement('td');
+        const weightCell = document.createElement('td');
+
+        nameCell.textContent = item.name;
+        confidenceCell.textContent = item.confidence;
+        const widthInput = document.createElement('input');
+        widthInput.type = 'number';
+        widthCell.appendChild(widthInput);
+
+        const heightInput = document.createElement('input');
+        heightInput.type = 'number';
+        heightCell.appendChild(heightInput);
+
+        const weightInput = document.createElement('input');
+        weightInput.type = 'number';
+        weightCell.appendChild(weightInput);
+
+        newRow.appendChild(nameCell);
+        newRow.appendChild(confidenceCell);
+        newRow.appendChild(widthCell);
+        newRow.appendChild(heightCell);
+        newRow.appendChild(weightCell);
+
+        tableBody.appendChild(newRow);
+    });
+</script>
+</body>
+</html>
+    
