@@ -143,19 +143,22 @@
     const urlParams = new URLSearchParams(queryString);
     const dataString = urlParams.get('data');
 
-    console.log("urlParams: ", urlParams)
-    console.log("dataString: ", dataString)
+    console.log("urlParams: ", urlParams);
+    console.log("dataString: ", dataString);
 
-    const dataArray = dataString.split(',');
+    // Распарсить JSON-строку в массив
+    const dataArray = JSON.parse(dataString);
 
+    console.log("dataArray: ", dataArray);
+
+    // Проход по массиву и добавление каждого элемента в data
     const data = [];
-    for (let i = 0; i < dataArray.length; i += 2) {
-        const name = dataArray[i];
-        data.push(name);
+    for (let i = 0; i < dataArray.length; i++) {
+        const item = dataArray[i];
+        data.push(item);
     }
 
-    console.log("data: ", data)
-
+    console.log("data: ", data);
     // Обновляем таблицу на основе данных
     const tableBody = document.getElementById('table-body');
     data.forEach(item => {
@@ -168,7 +171,7 @@
         const heightCell = document.createElement('td');
         const weightCell = document.createElement('td');
 
-        nameCell.textContent = item.name;
+        nameCell.textContent = item;
         const depthInput = document.createElement('input');
         depthInput.type = 'number';
         depthCell.appendChild(depthInput);
