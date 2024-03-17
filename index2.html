@@ -76,7 +76,7 @@
     <thead>
     <tr>
         <th>Объект</th>
-        <th>Точность</th>
+        <th>Глубина, мм</th>
         <th>Ширина, мм</th>
         <th>Высота, мм</th>
         <th>Вес, г</th>
@@ -95,7 +95,7 @@
 </div>
 
 <script>
-    const columns = ['name', 'confidence', 'width', 'height', 'weight'];
+    const columns = ['name', 'depth', 'width', 'height', 'weight'];
 
     function addRow() {
         const tableBody = document.getElementById('table-body');
@@ -103,7 +103,7 @@
 
         columns.forEach(column => {
             const cell = document.createElement('td');
-            if (column === 'name' || column === 'confidence') {
+            if (column === 'name') {
                 const input = document.createElement('input');
                 input.type = 'text';
                 cell.appendChild(input);
@@ -148,8 +148,7 @@
     const data = [];
     for (let i = 0; i < dataArray.length; i += 2) {
         const name = dataArray[i];
-        const confidence = dataArray[i + 1] || '0.9';
-        data.push({name, confidence});
+        data.push(name);
     }
 
     // Обновляем таблицу на основе данных
@@ -157,13 +156,16 @@
     data.forEach(item => {
         const newRow = document.createElement('tr');
         const nameCell = document.createElement('td');
-        const confidenceCell = document.createElement('td');
+        const depthCell = document.createElement('td');
         const widthCell = document.createElement('td');
         const heightCell = document.createElement('td');
         const weightCell = document.createElement('td');
 
         nameCell.textContent = item.name;
-        confidenceCell.textContent = item.confidence;
+        const depthInput = document.createElement('input');
+        depthInput.type = 'number';
+        depthCell.appendChild(depthInput);
+        
         const widthInput = document.createElement('input');
         widthInput.type = 'number';
         widthCell.appendChild(widthInput);
@@ -177,7 +179,7 @@
         weightCell.appendChild(weightInput);
 
         newRow.appendChild(nameCell);
-        newRow.appendChild(confidenceCell);
+        newRow.appendChild(depthCell);
         newRow.appendChild(widthCell);
         newRow.appendChild(heightCell);
         newRow.appendChild(weightCell);
