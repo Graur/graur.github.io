@@ -162,11 +162,14 @@
     const dataArray = dataString.split(',');
 
     console.log("dataArray: ", dataArray);
+    const russianNames = dataArray.map(name => translations[name]);
+
+    console.log("russianNames: ", russianNames);
 
     // Проход по массиву и добавление каждого элемента в data
     const data = [];
-    for (let i = 0; i < dataArray.length; i++) {
-        const item = dataArray[i];
+    for (let i = 0; i < russianNames.length; i++) {
+        const item = russianNames[i];
         data.push(item);
     }
 
