@@ -143,6 +143,9 @@
     const urlParams = new URLSearchParams(queryString);
     const dataString = urlParams.get('data');
 
+    console.log("urlParams: ", urlParams)
+    console.log("dataString: ", dataString)
+
     const dataArray = dataString.split(',');
 
     const data = [];
@@ -151,9 +154,13 @@
         data.push(name);
     }
 
+    console.log("data: ", data)
+
     // Обновляем таблицу на основе данных
     const tableBody = document.getElementById('table-body');
     data.forEach(item => {
+
+        console.log("item:", item)
         const newRow = document.createElement('tr');
         const nameCell = document.createElement('td');
         const depthCell = document.createElement('td');
