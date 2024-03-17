@@ -97,6 +97,18 @@
 <script>
     const columns = ['name', 'depth', 'width', 'height', 'weight'];
 
+    const translations = {
+        "car rims": "диски автомобиля",
+        "refrigerator": "холодильник",
+        "bathtub": "ванна",
+        "passenger car": "легковой автомобиль",
+        "microwave": "микроволновая печь",
+        "dishwasher": "посудомоечная машина",
+        "barrel": "бочка",
+        "washer": "стиральная машина",
+        "gas stove": "газовая плита",
+        "radiator": "радиатор"
+    };
     function addRow() {
         const tableBody = document.getElementById('table-body');
         const newRow = document.createElement('tr');
@@ -147,7 +159,7 @@
     console.log("dataString: ", dataString);
 
     // Распарсить JSON-строку в массив
-    const dataArray = JSON.parse(dataString);
+    const dataArray = dataString.split(',');
 
     console.log("dataArray: ", dataArray);
 
@@ -155,7 +167,7 @@
     const data = [];
     for (let i = 0; i < dataArray.length; i++) {
         const item = dataArray[i];
-        data.push(item);
+        data.push(translations[item]);
     }
 
     console.log("data: ", data);
