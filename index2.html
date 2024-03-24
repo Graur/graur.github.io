@@ -195,36 +195,29 @@
         // nameCell.textContent = item["name"];
         const nameInput = document.createElement('input');
         nameInput.type = 'text';
-        nameCell.value = item["name"];
+        nameInput.value = item["name"];
         nameCell.appendChild(nameInput);
-        
+
         const depthInput = document.createElement('input');
         depthInput.type = 'number';
-        if (item["depth"] != -1) {
-            depthCell.value = item["depth"];
-        }
+        depthInput.value = item["depth"] !== -1 ? item["depth"] : '';
         depthCell.appendChild(depthInput);
-        
+
         const widthInput = document.createElement('input');
         widthInput.type = 'number';
-        if (item["width"] != -1) {
-            widthCell.value = item["width"];
-        }
+        widthInput.value = item["width"] !== -1 ? item["width"] : '';
         widthCell.appendChild(widthInput);
 
         const heightInput = document.createElement('input');
         heightInput.type = 'number';
-        if (item["height"] != -1) {
-            heightCell.value = item["height"];
-        }
+        heightInput.value = item["height"] !== -1 ? item["height"] : '';
         heightCell.appendChild(heightInput);
 
         const weightInput = document.createElement('input');
         weightInput.type = 'number';
-        if (item["weight"] != -1) {
-            weightCell.value = item["weight"];
-        }
+        weightInput.value = item["weight"] !== -1 ? item["weight"] : '';
         weightCell.appendChild(weightInput);
+
 
         newRow.appendChild(nameCell);
         newRow.appendChild(depthCell);
