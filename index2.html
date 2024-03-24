@@ -191,12 +191,13 @@
         const widthCell = document.createElement('td');
         const heightCell = document.createElement('td');
         const weightCell = document.createElement('td');
-
-        // nameCell.textContent = item["name"];
-        const nameInput = document.createElement('input');
-        nameInput.type = 'text';
-        nameInput.value = item["name"];
-        nameCell.appendChild(nameInput);
+        const actionCell = document.createElement('td');
+        
+        nameCell.textContent = item["name"];
+        // const nameInput = document.createElement('input');
+        // nameInput.type = 'text';
+        // nameInput.value = item["name"];
+        // nameCell.appendChild(nameInput);
 
         const depthInput = document.createElement('input');
         depthInput.type = 'number';
@@ -217,7 +218,14 @@
         weightInput.type = 'number';
         weightInput.value = item["weight"] !== -1 ? item["weight"] : '';
         weightCell.appendChild(weightInput);
-
+        
+        // Создаем кнопку удаления
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '-';
+        deleteButton.onclick = function() {
+            tableBody.removeChild(newRow); // Удаляем строку из таблицы
+        };
+        actionCell.appendChild(deleteButton);
 
         newRow.appendChild(nameCell);
         newRow.appendChild(depthCell);
