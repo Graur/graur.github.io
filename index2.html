@@ -147,9 +147,9 @@
             const cells = row.querySelectorAll('td');
             const rowData = {};
             cells.forEach((cell, index) => {
-                if (index < 2) {
+                if (index > 0 && index < 5) {
                     rowData[columns[index]] = ((cell.querySelector('input') || {}).value || 0.0);
-                } else {
+                } else if (index === 0) {
                     rowData[columns[index]] = cell.textContent;
                 }
             });
