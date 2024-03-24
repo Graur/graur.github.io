@@ -126,7 +126,17 @@
             }
             newRow.appendChild(cell);
         });
-
+       
+        // Добавляем кнопку удаления строки
+        const deleteCell = document.createElement('td');
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '-';
+        deleteButton.onclick = function() {
+            tableBody.removeChild(newRow); // Удаляем строку из таблицы
+        };
+        deleteCell.appendChild(deleteButton);
+        newRow.appendChild(deleteCell);
+        
         tableBody.appendChild(newRow);
     }
 
